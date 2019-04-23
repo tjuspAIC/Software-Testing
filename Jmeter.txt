@@ -1,0 +1,16 @@
+java.util.regex.Pattern p=java.util.regex.Pattern.compile("id=(\\d+)");
+java.util.regex.Matcher m=p.matcher(bsh.args[0]);
+//print(m.group(0));
+boolean found=m.find();
+
+if(found){
+  if(m.group(1).equals(bsh.args[1])){
+  	Failure=false;
+  	print("获取第一个category"+bsh.args[1]+"数据正确");
+  }
+  else
+  	Failure=true;
+  	FailureMessage = m.group(1) + "<>" + bsh.args[1];
+  }
+
+else Failure=true;
